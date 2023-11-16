@@ -28,7 +28,7 @@ function handlePlayClick() {
         const myCell = myCreateElement('div', classArray, i);
         // Cell event listener
         myCell.addEventListener('click', function() {
-            handleCellClick(this, i);
+            handleCellClick(myCell, i);
         });
         // Append cell to fragment
         fragment.appendChild(myCell);
@@ -53,7 +53,7 @@ let totalCells = 81;
 // EXECUTION
 // Set grid size and cell number based on selected difficulty
 difficultySelector.addEventListener('change', function() {
-    const selectedDifficulty = this.value;
+    const selectedDifficulty = difficultySelector.value;
     switch (selectedDifficulty) {
         case 'easy':
             setDifficulty(10);
