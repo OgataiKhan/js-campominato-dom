@@ -12,7 +12,16 @@ function myCreateElement(tag, classNames, content){
 // Game functionality
 function handleCellClick(cell, index) {
     console.log(index);
-    cell.classList.add('cell-clicked');
+    if (bombArray.includes(index)) {
+        cell.classList.add('cell-bomb');
+    } else {
+        cell.classList.add('cell-clicked');
+        // Score tracking
+        if(!scoreArray.includes(index)) {
+            scoreArray.push(index);
+            score.innerHTML = scoreArray.length;
+        }
+    }
 }
 
 // Play click handler
@@ -37,6 +46,10 @@ function handlePlayClick() {
     board.appendChild(fragment);
     //Generate bombs
     bombGenerator(totalBombs, totalCells);
+    // Score reset
+    scoreBox.classList.add('appear');
+    score.innerHTML = '0';
+    scoreArray = [];
 }
 
 // Difficulty setter
@@ -60,10 +73,13 @@ function bombGenerator(totalBombsGen, totalCellsGen) {
 const board = document.querySelector('.board');
 const playButtons = document.querySelectorAll('.play-btn');
 const difficultySelector = document.getElementById('difficulty');
+const scoreBox = document.getElementById('score-box');
+const score = document.getElementById('score');
 let sideLength = '9';
 let totalCells = 81;
 const totalBombs = 16;
 let bombArray = [];
+let scoreArray = [];
 
 // EXECUTION
 // Set grid size and cell number based on selected difficulty

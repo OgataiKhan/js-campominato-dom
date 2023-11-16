@@ -91,7 +91,33 @@ header .button-box {
 
 footer {
     padding: 30px;
+    display: flex;
+    align-items: center;
 }
+
+.footer-left,
+.footer-right {
+    width: 30%;
+}
+
+.footer-center {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.footer-right {
+    text-align: end;
+}
+
+.footer-right #score-box {
+    display: none;
+}
+
+.footer-right #score-box.appear {
+    display: block;
+}
+
+
 
 /* 
 ********
