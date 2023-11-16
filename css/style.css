@@ -131,7 +131,16 @@ main {
 
 .cell-clicked {
     background-color: #003153;
-    color: white;
+    color: #ffffff;
+}
+
+.cell-clicked:hover {
+    filter: unset;
+}
+
+.cell-bomb {
+    background-color: #5d0404;
+    color: #ffffff;
 }
 
 .cell10 {

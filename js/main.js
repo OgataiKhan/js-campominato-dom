@@ -35,6 +35,8 @@ function handlePlayClick() {
     }
     // Append the whole fragment to the board
     board.appendChild(fragment);
+    //Generate bombs
+    bombGenerator(totalBombs, totalCells);
 }
 
 // Difficulty setter
@@ -43,12 +45,25 @@ function setDifficulty(side) {
     totalCells = side * side;
 }
 
+// Bomb generator
+function bombGenerator(totalBombsGen, totalCellsGen) {
+    bombArray = [];
+    while(bombArray.length < totalBombsGen){
+        let bombCellNumber = Math.floor(Math.random() * totalCellsGen) + 1;
+        if(!bombArray.includes(bombCellNumber)) bombArray.push(bombCellNumber);
+    }
+    console.log(bombArray);
+    return bombArray;
+}
+
 // VARIABLES
 const board = document.querySelector('.board');
 const playButtons = document.querySelectorAll('.play-btn');
 const difficultySelector = document.getElementById('difficulty');
 let sideLength = '9';
 let totalCells = 81;
+const totalBombs = 16;
+let bombArray = [];
 
 // EXECUTION
 // Set grid size and cell number based on selected difficulty
