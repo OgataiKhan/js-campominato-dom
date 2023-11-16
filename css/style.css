@@ -1,0 +1,154 @@
+/* 
+********
+RESET
+********
+*/
+
+ * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 
+********
+COMMON
+********
+*/
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.play-btn,
+#difficulty {
+    border-radius: 5px;
+    border: 1px solid gray;
+    background-color: rgb(245, 243, 243);
+}
+
+.play-btn {
+    padding: 4px 38px;
+}
+
+
+#difficulty {
+    padding: 3px 80px 3px 0;
+}
+
+/* 
+********
+TYPOGRAPHY
+********
+*/
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.play-btn,
+#difficulty {
+    font-size: 1rem;
+}
+
+footer p,
+main p {
+    font-size: 1.2rem;
+}
+
+/* 
+********
+HEADER & FOOTER
+********
+*/
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+ }
+
+header .logo {
+    width: 80px;
+ }
+
+header .logo img {
+    width: 100%;
+    display: block;
+ }
+
+header .button-box {
+    margin-left: auto;
+    padding-right: 10px;
+ }
+
+footer {
+    padding: 30px;
+}
+
+/* 
+********
+MAIN
+********
+*/
+
+main {
+    background-color: #7FFFD4;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board {
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+}
+
+.cell {
+    background-color: #7FFFD4;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell:hover {
+    filter: brightness(0.8);
+    cursor: pointer;
+}
+
+.cell-clicked {
+    background-color: #003153;
+    color: white;
+}
+
+.cell10 {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.cell9 {
+    width: calc(100% / 9);
+    height: calc(100% / 9);    
+}
+
+.cell7 {
+    width: calc(100% / 7);
+    height: calc(100% / 7);    
+}
+
+main p {
+    padding: 10px;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Griglia Campo Minato</title>
+    <!-- My css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/boolean-logo.png" alt="Boolean logo">
+        </div>
+        <h1>Campo Minato</h1>
+        <!-- Difficulty settings and header play button -->
+        <div class="button-box">
+            <label for="difficulty">Difficulty:</label>
+            <select name="difficulty" id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium" selected="selected">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <button class="play-btn">Play</button>
+        </div>
+    </header>
+    <main>
+        <!-- Here goes the grid -->
+        <div class="board">
+            <p>Click <button class="play-btn">Play</button> to start the game!</p>
+        </div>
+    </main>
+    <footer>
+        <p>Made with &hearts; by <a href="#">Kevin</a></p>
+    </footer>
+
+    <!-- My JS -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
