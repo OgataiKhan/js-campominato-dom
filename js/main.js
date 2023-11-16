@@ -11,15 +11,26 @@ function myCreateElement(tag, classNames, content){
 
 // Game functionality
 function handleCellClick(cell, index) {
+    // Exit the function if the game is over
+    if (gameOver) return;
     console.log(index);
+    // Loss condition
     if (bombArray.includes(index)) {
         cell.classList.add('cell-bomb');
+        revealAllBombs();
+        gameOver = true;
+        gameEndMessage.innerHTML = `GAME OVER! Your final score is: ${scoreArray.length}`;
     } else {
         cell.classList.add('cell-clicked');
         // Score tracking
         if(!scoreArray.includes(index)) {
             scoreArray.push(index);
             score.innerHTML = scoreArray.length;
+        }
+        // Win condition
+        if(scoreArray.length === (totalCells - totalBombs)) {
+            gameOver = true;
+            gameEndMessage.innerHTML = `YOU WIN! Your final score is: ${scoreArray.length}`;
         }
     }
 }
@@ -49,7 +60,9 @@ function handlePlayClick() {
     // Score reset
     scoreBox.classList.add('appear');
     score.innerHTML = '0';
+    gameEndMessage.innerHTML = '';
     scoreArray = [];
+    gameOver = false;
 }
 
 // Difficulty setter
@@ -69,17 +82,29 @@ function bombGenerator(totalBombsGen, totalCellsGen) {
     return bombArray;
 }
 
+// Bomb revealer
+function revealAllBombs() {
+    for (let k = 0; k < bombArray.length; k++) {
+        const bombIndex = bombArray[k];
+        const bombCell = board.children[bombIndex - 1];
+        bombCell.classList.add('cell-bomb');
+    }
+}
+
+
 // VARIABLES
 const board = document.querySelector('.board');
 const playButtons = document.querySelectorAll('.play-btn');
 const difficultySelector = document.getElementById('difficulty');
 const scoreBox = document.getElementById('score-box');
 const score = document.getElementById('score');
+const gameEndMessage = document.querySelector('.game-end');
 let sideLength = '9';
 let totalCells = 81;
 const totalBombs = 16;
 let bombArray = [];
 let scoreArray = [];
+let gameOver = false;
 
 // EXECUTION
 // Set grid size and cell number based on selected difficulty

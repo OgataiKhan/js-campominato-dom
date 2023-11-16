@@ -63,6 +63,10 @@ main p {
     font-size: 1.2rem;
 }
 
+/* footer .game-end {
+    text-transform: uppercase;
+} */
+
 /* 
 ********
 HEADER & FOOTER
@@ -113,11 +117,14 @@ footer {
     display: none;
 }
 
+/* footer .game-over,
+footer .victory {
+    display: none;
+} */
+
 .footer-right #score-box.appear {
     display: block;
 }
-
-
 
 /* 
 ********
@@ -160,7 +167,8 @@ main {
     color: #ffffff;
 }
 
-.cell-clicked:hover {
+.cell-clicked:hover,
+.cell-bomb:hover {
     filter: unset;
 }
 
